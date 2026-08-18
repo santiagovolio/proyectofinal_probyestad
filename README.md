@@ -2,9 +2,13 @@
 
 **TCNT0011 · Probabilidad y Estadística I · LEAD University**
 
-Análisis integral del desempeño comercial de **Café Cordillera**, una cadena costarricense de cafeterías con sucursales en Cartago, Escazú, Heredia y San Pedro. El proyecto utiliza un único conjunto de datos para aplicar las diez técnicas principales del curso, desde estadística descriptiva hasta regresión múltiple, y convertir los resultados en decisiones de negocio reproducibles.
+Análisis integral del desempeño comercial de **Café Cordillera**, una cadena costarricense de cafeterías con sucursales en Cartago, Escazú, Heredia y San Pedro.
+
+El proyecto utiliza un único conjunto de datos para aplicar las diez técnicas principales del curso, desde estadística descriptiva hasta regresión múltiple, con el objetivo de transformar los resultados estadísticos en información útil para la toma de decisiones gerenciales.
 
 > **Pregunta de investigación:** ¿Qué decisiones de operación, surtido y promoción debe tomar la gerencia de Café Cordillera con base en la evidencia estadística de sus 11.983 transacciones registradas entre marzo y mayo de 2026?
+
+---
 
 ## Información académica
 
@@ -13,99 +17,200 @@ Análisis integral del desempeño comercial de **Café Cordillera**, una cadena 
 | Curso | TCNT0011 · Probabilidad y Estadística I |
 | Universidad | LEAD University |
 | Docente | Bernal Rojas Villalobos |
-| Correo docente | bernal.rojas@ulead.ac.cr |
 | Proyecto | Proyecto Final Integrador — Café Cordillera |
-| Entrega | Viernes 21 de agosto de 2026, antes de las 11:59 p. m. |
+| Fecha de entrega | 21 de agosto de 2026 |
 | Valor | 50 puntos |
 | Integrantes | Luciana Carabaguiaz, Diego Díaz, Julián Maroto y Santiago Volio |
 
-## Objetivo
+---
 
-El objetivo es analizar el comportamiento comercial de Café Cordillera y responder preguntas relevantes para la gerencia mediante técnicas estadísticas aplicadas sobre el mismo dataset. El trabajo no está planteado como una colección de ejercicios independientes: cada análisis responde una pregunta de negocio y termina con una interpretación práctica.
+## Objetivo del proyecto
 
-El proyecto estudia principalmente:
+El objetivo principal es analizar el comportamiento comercial de Café Cordillera y responder preguntas relevantes para la gerencia mediante herramientas de probabilidad y estadística.
 
-- desempeño por sucursal, categoría y producto;
+Todo el análisis se desarrolla sobre el mismo conjunto de datos. Cada técnica estadística responde a una pregunta concreta del negocio y termina con una interpretación práctica.
+
+El proyecto analiza principalmente:
+
+- desempeño por sucursal;
+- desempeño por categoría y producto;
 - comportamiento conjunto de compra;
 - recurrencia de clientes;
 - llegada de pedidos por hora;
-- calidad y sesgo de los datos de satisfacción;
+- calidad de los datos de satisfacción;
 - estimación del ticket promedio;
 - diferencias entre sucursales;
 - impacto de las promociones;
-- relación entre clima y mezcla de productos;
+- relación entre clima y comportamiento de compra;
 - predicción de unidades vendidas.
 
-## Archivos del proyecto
+---
+
+## Estructura del proyecto
+
+La estructura del repositorio es la siguiente:
 
 ```text
-.
-├── README.md
-├── cafe_cordillera_dataset.csv
+main/
+├── data/
+│   └── cafe_cordillera_dataset.csv
+│
+├── instrucciones.html
 ├── notebook proyecto final cafe cordillera.ipynb
-├── REPORTE EJECUTIVO (versión reescrita).pdf
-└── Pasted markdown.md
+├── REPORTE EJECUTIVO.pdf
+├── REPORTE EJECUTIVO.docx
+└── README.md
 ```
+
+### Descripción de los archivos
 
 | Archivo | Descripción |
 |---|---|
-| `cafe_cordillera_dataset.csv` | Dataset original utilizado en todos los análisis. |
-| `notebook proyecto final cafe cordillera.ipynb` | Cuaderno reproducible en Python con el setup, los diez sellos, cálculos, pruebas, modelos, visualizaciones e interpretaciones. |
-| `REPORTE EJECUTIVO (versión reescrita).pdf` | Reporte ejecutivo dirigido a la gerencia con metodología, hallazgos, recomendaciones y limitaciones. |
-| `Pasted markdown.md` | Material de referencia que contiene el HTML con las instrucciones originales del proyecto final, requisitos, entregables y rúbrica resumida. |
-| `README.md` | Descripción general, instrucciones de ejecución y síntesis técnica del proyecto. |
+| `data/cafe_cordillera_dataset.csv` | Dataset original utilizado para todos los análisis estadísticos del proyecto. |
+| `instrucciones.html` | Documento HTML con las instrucciones originales del Proyecto Final Integrador, incluyendo los diez sellos, requisitos mínimos, entregables, rúbrica y logística de entrega. |
+| `notebook proyecto final cafe cordillera.ipynb` | Notebook de Python con los diez sellos, cálculos, pruebas estadísticas, modelos, gráficos e interpretaciones. |
+| `REPORTE EJECUTIVO.pdf` | Versión final en PDF del reporte ejecutivo dirigido a la gerencia de Café Cordillera. |
+| `REPORTE EJECUTIVO.docx` | Versión editable en Microsoft Word del reporte ejecutivo. |
+| `README.md` | Documentación general del repositorio, incluyendo estructura, metodología, resultados e instrucciones de ejecución. |
 
-## Dataset
+---
 
-El archivo `cafe_cordillera_dataset.csv` contiene **11.983 líneas de venta**, agrupadas en **7.731 pedidos** y correspondientes a **2.600 clientes**.
+## Instrucciones originales del proyecto
 
-| Característica | Valor |
-|---|---:|
-| Filas | 11.983 |
-| Columnas originales | 15 |
-| Pedidos únicos | 7.731 |
-| Clientes únicos | 2.600 |
-| Sucursales | 4 |
-| Productos | 13 |
-| Categorías | 4 |
-| Período | 2 de marzo al 31 de mayo de 2026 |
-| Horario registrado | 6:00 a 19:00 |
-| Calificaciones de satisfacción disponibles | 3.449 |
-| Calificaciones de satisfacción faltantes | 71,22 % |
+El archivo:
 
-### Variables
+```text
+instrucciones.html
+```
 
-| Variable | Descripción |
-|---|---|
-| `id_transaccion` | Identificador de la línea de venta. |
-| `id_pedido` | Identificador del pedido al que pertenece la línea. |
-| `id_cliente` | Identificador del cliente. |
-| `fecha` | Fecha de la transacción. |
-| `hora` | Hora registrada, de 6 a 19. |
-| `sucursal` | Sucursal: Cartago, Escazu, Heredia o San Pedro. |
-| `producto` | Producto vendido. |
-| `categoria` | `bebida_caliente`, `bebida_fria`, `postre` o `snack`. |
-| `precio_unitario` | Precio unitario del producto en colones. |
-| `unidades` | Cantidad vendida en la línea, entre 1 y 4 unidades. |
-| `medio_pago` | `efectivo`, `sinpe_movil` o `tarjeta`. |
-| `clima` | `lluvioso`, `nublado` o `soleado`. |
-| `promocion_activa` | Indicador binario: `1` cuando hay promoción y `0` cuando no. |
-| `promocion_tipo` | `2x1_bebidas`, `combo_postre` o `descuento_10`; queda vacío cuando no hay promoción. |
-| `calificacion_satisfaccion` | Calificación de 1 a 5; contiene una proporción alta de datos faltantes. |
+contiene las instrucciones originales proporcionadas para el Proyecto Final Integrador.
 
-Durante el análisis se crea además:
+Puede abrirse directamente en cualquier navegador web.
+
+El documento incluye:
+
+- descripción del caso Café Cordillera;
+- estructura de los diez sellos;
+- preguntas de negocio de cada fase;
+- requisitos mínimos de cada análisis;
+- entregables;
+- rúbrica resumida;
+- fecha y formato de entrega.
+
+El HTML funciona como **documento de referencia con las instrucciones del proyecto**. Los análisis y resultados se encuentran desarrollados en el notebook y en el reporte ejecutivo.
+
+---
+
+## Ruta del dataset
+
+El dataset se encuentra dentro de la carpeta:
+
+```text
+data/
+```
+
+Por lo tanto, desde la raíz del proyecto (`main`) la ruta relativa es:
+
+```text
+data/cafe_cordillera_dataset.csv
+```
+
+En Python puede cargarse de la siguiente manera:
+
+```python
+import pandas as pd
+
+DATA_PATH = "data/cafe_cordillera_dataset.csv"
+
+df = pd.read_csv(DATA_PATH, parse_dates=["fecha"])
+```
+
+Durante el análisis también se crea la variable `monto`:
 
 ```python
 df["monto"] = df["precio_unitario"] * df["unidades"]
 ```
 
-`monto` representa el valor de una línea de venta. Para el análisis del **ticket**, el notebook agrupa por `id_pedido` y suma las líneas de cada pedido.
+---
 
-## Tecnologías
+## Dataset
 
-El análisis fue desarrollado en **Python 3** y está preparado para ejecutarse en **Google Colab** o en un entorno local de Jupyter.
+El archivo:
 
-Principales librerías utilizadas:
+```text
+data/cafe_cordillera_dataset.csv
+```
+
+contiene **11.983 líneas de venta**, agrupadas en **7.731 pedidos** realizados por **2.600 clientes distintos**.
+
+### Dimensiones principales
+
+| Característica | Valor |
+|---|---:|
+| Líneas de venta | 11.983 |
+| Pedidos únicos | 7.731 |
+| Clientes únicos | 2.600 |
+| Sucursales | 4 |
+| Período analizado | 2 de marzo al 31 de mayo de 2026 |
+| Horario registrado | 6:00 a 19:00 |
+| Calificaciones de satisfacción disponibles | 3.449 |
+| Calificaciones de satisfacción faltantes | 71,22 % |
+
+Las cuatro sucursales analizadas son:
+
+- Cartago
+- Escazú
+- Heredia
+- San Pedro
+
+---
+
+## Variables del dataset
+
+El dataset original contiene las siguientes variables:
+
+| Variable | Descripción |
+|---|---|
+| `id_transaccion` | Identificador único de cada línea de venta. |
+| `id_pedido` | Identificador del pedido al que pertenece la transacción. |
+| `id_cliente` | Identificador del cliente. |
+| `fecha` | Fecha de la transacción. |
+| `hora` | Hora de la transacción. |
+| `sucursal` | Sucursal donde se realizó la compra. |
+| `producto` | Producto vendido. |
+| `categoria` | Categoría del producto. |
+| `precio_unitario` | Precio unitario del producto en colones costarricenses. |
+| `unidades` | Cantidad de unidades vendidas. |
+| `medio_pago` | Medio utilizado para realizar el pago. |
+| `clima` | Condición climática registrada. |
+| `promocion_activa` | Indica si existía una promoción activa. |
+| `promocion_tipo` | Tipo de promoción utilizada. |
+| `calificacion_satisfaccion` | Calificación de satisfacción del cliente cuando está disponible. |
+
+Durante el análisis también se crea:
+
+```python
+df["monto"] = df["precio_unitario"] * df["unidades"]
+```
+
+Esta variable representa el monto correspondiente a cada línea de venta.
+
+Para calcular el **ticket de un pedido**, se agrupan todas las líneas pertenecientes al mismo `id_pedido`.
+
+---
+
+## Tecnologías utilizadas
+
+El proyecto fue desarrollado principalmente en **Python 3** utilizando un notebook de Jupyter.
+
+Puede ejecutarse en:
+
+- Google Colab;
+- Jupyter Notebook;
+- JupyterLab;
+- Visual Studio Code con soporte para notebooks.
+
+### Librerías principales
 
 ```text
 numpy
@@ -117,333 +222,1208 @@ statsmodels
 scikit-learn
 ```
 
-Instalación local:
+Para instalar las dependencias en un entorno local:
 
 ```bash
 pip install numpy pandas matplotlib seaborn scipy statsmodels scikit-learn
 ```
 
+---
+
 ## Cómo ejecutar el proyecto
 
-1. Descargue o clone los archivos del proyecto.
-2. Mantenga `cafe_cordillera_dataset.csv` en la misma carpeta que el notebook, o ajuste la ruta del dataset en el setup.
-3. Abra `notebook proyecto final cafe cordillera.ipynb` en Jupyter Notebook, JupyterLab o Google Colab.
-4. En Colab, suba el CSV al panel de archivos o monte Google Drive.
-5. Ejecute las celdas en orden desde el inicio.
-6. El bloque de setup carga el dataset una sola vez, convierte `fecha`, crea `monto` y deja disponible el `DataFrame` `df` para los diez sellos.
+### 1. Clonar o descargar el repositorio
 
-El notebook busca automáticamente el dataset en estas ubicaciones:
+La carpeta principal debe conservar la siguiente estructura:
 
-```python
-"cafe_cordillera_dataset.csv"
-"../cafe_cordillera_dataset.csv"
-"/content/cafe_cordillera_dataset.csv"
-"/content/drive/MyDrive/cafe_cordillera_dataset.csv"
+```text
+main/
+├── data/
+│   └── cafe_cordillera_dataset.csv
+├── instrucciones.html
+├── notebook proyecto final cafe cordillera.ipynb
+├── REPORTE EJECUTIVO.pdf
+├── REPORTE EJECUTIVO.docx
+└── README.md
 ```
 
-Cuando el archivo no está en ninguna de esas rutas, se debe ajustar `DATA_PATH` o subir el CSV al entorno.
+### 2. Verificar la ubicación del dataset
 
-## Metodología: los diez sellos
+El archivo debe encontrarse en:
 
-Cada sello aplica una herramienta del curso a una pregunta concreta de negocio.
+```text
+main/data/cafe_cordillera_dataset.csv
+```
 
-| Sello | Técnica | Pregunta de negocio | Método principal |
-|---:|---|---|---|
-| 1 | Descriptiva y visualización | ¿Qué se vende, dónde y cuánto factura Café Cordillera? | Medias, medianas, desviaciones estándar, agregaciones y gráficos. |
-| 2 | Probabilidad condicional | ¿Comprar bebida caliente aumenta la probabilidad de comprar postre en el mismo pedido? | Probabilidades marginales y condicionales, tabla de contingencia. |
-| 3 | Teorema de Bayes | Si un cliente compró postre en su primera visita, ¿qué tan probable es que vuelva? | Definición de eventos, probabilidades base y fórmula de Bayes. |
-| 4 | Distribuciones | ¿Cuántos clientes puede esperar una sucursal en una hora dada? | Conteo de pedidos por sucursal-fecha-hora, Poisson y bondad de ajuste. |
-| 5 | Muestreo y sesgos | ¿La calificación de satisfacción representa a todos los clientes? | Análisis de faltantes, comparaciones de respuesta y pruebas de independencia. |
-| 6 | Intervalos de confianza | ¿Cuál es el ticket promedio real y con qué margen de error? | IC del 95 % con t de Student y verificación mediante bootstrap. |
-| 7 | Prueba de hipótesis | ¿Una sucursal vende de verdad más que otra, o es azar? | ANOVA de una vía, OLS con variables indicadoras y t-test de confirmación. |
-| 8 | A/B Testing | ¿La promoción activa realmente aumenta las ventas? | Comparación tratamiento-control, t de Welch, tamaño del efecto y validación. |
-| 9 | Correlación vs. causalidad | ¿El clima causa que se venda más bebida caliente? | Chi-cuadrado, V de Cramér y análisis de variables confusoras. |
-| 10 | Regresión | ¿Qué variables predicen mejor las unidades vendidas? | Regresión lineal múltiple, coeficientes estandarizados, validación y Poisson de robustez. |
+Si el notebook se ejecuta desde la carpeta `main`, la ruta relativa es:
 
-## Resultados principales
+```python
+DATA_PATH = "data/cafe_cordillera_dataset.csv"
+```
 
-### 1. Perfil de ventas
+### 3. Abrir el notebook
 
-- **Facturación total del período:** ₡27.323.791.
-- **Sucursal con mayor facturación:** Escazú, con ₡7.295.509.
-- **Categoría con mayor facturación:** bebida fría, con ₡11.855.048.
-- **Producto estrella:** Frappe, con ₡4.733.463 facturados.
-- Escazú presenta el precio unitario medio más alto y, al mismo tiempo, la menor cantidad media de unidades por línea de venta entre las cuatro sucursales.
+Abrir:
 
-### 2. Probabilidad condicional: bebida caliente + postre
+```text
+notebook proyecto final cafe cordillera.ipynb
+```
 
-A nivel de pedido:
+utilizando Jupyter Notebook, JupyterLab, Visual Studio Code o Google Colab.
+
+### 4. Cargar el dataset
+
+El setup puede utilizar:
+
+```python
+import os
+import pandas as pd
+
+DATA_PATH = "data/cafe_cordillera_dataset.csv"
+
+if not os.path.exists(DATA_PATH):
+    raise FileNotFoundError(
+        "No se encontró el archivo data/cafe_cordillera_dataset.csv."
+    )
+
+df = pd.read_csv(DATA_PATH, parse_dates=["fecha"])
+
+df["monto"] = df["precio_unitario"] * df["unidades"]
+```
+
+### 5. Ejecutar las celdas en orden
+
+El notebook debe ejecutarse desde el inicio hasta el final.
+
+El bloque de setup:
+
+1. importa las librerías;
+2. carga el dataset;
+3. convierte `fecha` al formato correspondiente;
+4. crea la variable `monto`;
+5. deja disponible el DataFrame `df`.
+
+Los diez sellos reutilizan posteriormente el mismo DataFrame.
+
+---
+
+# Metodología
+
+El proyecto está organizado alrededor de **diez sellos**, correspondientes a las principales herramientas estadísticas estudiadas durante el curso.
+
+| Sello | Técnica | Pregunta de negocio |
+|---:|---|---|
+| 1 | Descriptiva y visualización | ¿Qué se vende, dónde y cuánto factura Café Cordillera? |
+| 2 | Probabilidad condicional | ¿Comprar bebida caliente aumenta la probabilidad de comprar postre? |
+| 3 | Teorema de Bayes | Si un cliente compró postre en su primera visita, ¿qué tan probable es que vuelva? |
+| 4 | Distribuciones | ¿Cuántos pedidos puede esperar una sucursal en una hora determinada? |
+| 5 | Muestreo y sesgos | ¿La calificación de satisfacción representa a todos los clientes? |
+| 6 | Intervalos de confianza | ¿Cuál es el ticket promedio y con qué margen de error? |
+| 7 | Prueba de hipótesis | ¿Una sucursal vende realmente más que otra? |
+| 8 | A/B Testing | ¿La promoción activa aumenta las unidades vendidas? |
+| 9 | Correlación vs. causalidad | ¿El clima causa cambios en el comportamiento de compra? |
+| 10 | Regresión | ¿Qué variables predicen mejor las unidades vendidas? |
+
+---
+
+# Sello 1 — Estadística descriptiva y visualización
+
+## Pregunta de negocio
+
+**¿Qué se vende, dónde y cuánto factura Café Cordillera?**
+
+Se analizan:
+
+- media;
+- mediana;
+- desviación estándar;
+- precio unitario;
+- unidades;
+- sucursal;
+- categoría;
+- producto.
+
+También se utilizan visualizaciones para analizar la facturación por sucursal, categoría y producto.
+
+## Principales resultados
+
+La sucursal con mayor facturación es:
+
+```text
+Escazú: ₡7.295.509
+```
+
+Cartago registra:
+
+```text
+₡6.616.884
+```
+
+La diferencia entre ambas es cercana al **10,3 %**.
+
+La categoría con mayor facturación es:
+
+```text
+Bebida fría: ₡11.855.048
+```
+
+El producto con mayor facturación es:
+
+```text
+Frappe: ₡4.733.463
+```
+
+Los tres primeros productos del ranking pertenecen a la categoría de bebidas frías.
+
+Escazú presenta además:
+
+- el precio unitario promedio más alto;
+- la menor cantidad media de unidades por transacción.
+
+Este comportamiento refleja un perfil de compra orientado hacia productos de mayor precio.
+
+---
+
+# Sello 2 — Probabilidad condicional
+
+## Pregunta de negocio
+
+**¿Comprar una bebida caliente aumenta la probabilidad de comprar postre en el mismo pedido?**
+
+El análisis se realiza a nivel de `id_pedido`.
+
+Primero se calcula:
 
 \[
-P(\text{postre}) = 20,88\%
+P(\text{postre})
 \]
+
+y posteriormente:
 
 \[
-P(\text{postre}\mid\text{bebida caliente}) = 19,80\%
+P(\text{postre}\mid\text{bebida caliente})
 \]
 
-La diferencia es de aproximadamente **−1,07 puntos porcentuales**. El comportamiento observado no respalda un combo de bebida caliente y postre como asociación natural de compra.
+## Resultados
 
-### 3. Bayes y recurrencia
+La probabilidad general de que un pedido incluya postre es:
 
-Se define:
+\[
+P(\text{postre})=20,88\%
+\]
 
-- **A:** cliente recurrente, es decir, realizó más de un pedido.
+Cuando el pedido contiene una bebida caliente:
+
+\[
+P(\text{postre}\mid\text{bebida caliente})=19,80\%
+\]
+
+La diferencia es aproximadamente:
+
+\[
+-1,07
+\]
+
+puntos porcentuales.
+
+## Interpretación
+
+El comportamiento observado no presenta una asociación positiva entre comprar una bebida caliente y agregar un postre.
+
+Los datos históricos no respaldan por sí solos la creación de un combo bebida caliente + postre.
+
+---
+
+# Sello 3 — Teorema de Bayes
+
+## Pregunta de negocio
+
+**Si un cliente compró postre en su primera visita, ¿qué tan probable es que vuelva?**
+
+Se definen los eventos:
+
+- **A:** el cliente es recurrente;
 - **B:** la primera compra del cliente incluyó al menos un postre.
 
-Resultados:
+Un cliente recurrente se define como aquel que realizó más de un pedido durante el período.
+
+## Probabilidades
 
 \[
 P(A)=43,12\%
 \]
 
 \[
+P(B)=16,73\%
+\]
+
+\[
+P(B\mid A)=23,19\%
+\]
+
+Aplicando Bayes:
+
+\[
+P(A\mid B)
+=
+\frac{P(B\mid A)P(A)}{P(B)}
+\]
+
+\[
+P(A\mid B)
+=
+\frac{0,2319\times0,4312}{0,1673}
+\]
+
+\[
 P(A\mid B)=59,77\%
 \]
 
-Conocer que la primera compra incluyó un postre eleva la probabilidad estimada de recurrencia en **16,65 puntos porcentuales**. Este resultado funciona como una **señal de segmentación**, no como prueba de que el postre cause la recurrencia.
+## Interpretación
 
-### 4. Distribución de pedidos por hora
+La probabilidad general de recurrencia es de **43,12 %**.
 
-Las llegadas se modelan con una **distribución de Poisson por sucursal y franja horaria**. Al separar las horas, el índice medio de dispersión es aproximadamente **0,989**, cercano a 1.
+Cuando se conoce que el cliente compró un postre en su primera visita, la probabilidad aumenta hasta **59,77 %**.
 
-El patrón de demanda es bimodal:
+El incremento corresponde a **16,65 puntos porcentuales**.
 
-- pico matutino: **7:00–9:00**;
-- pico vespertino: **16:00–18:00**;
-- valles marcados alrededor de **11:00** y **15:00**.
+Este resultado identifica al postre como una posible **señal de fidelización**, pero no demuestra que comprar un postre cause que el cliente vuelva.
 
-Ejemplo operativo: en Escazú a las 17:00 se obtiene \(\lambda = 2,077\), y el percentil 95 corresponde a **5 pedidos**.
+---
 
-### 5. Muestreo y sesgo de satisfacción
+# Sello 4 — Distribuciones de probabilidad
 
-De las 11.983 líneas de venta, **8.534 no tienen calificación**, equivalente a **71,22 %** de datos faltantes.
+## Pregunta de negocio
 
-La media observada de satisfacción es **3,752**, pero no debe interpretarse como la satisfacción de toda la clientela. Las variables observables analizadas no muestran una relación estadísticamente significativa con la propensión a responder al nivel \(\alpha=0,05\), pero esto no descarta sesgo de autoselección relacionado con la satisfacción no observada.
+**¿Cuántos pedidos puede esperar una sucursal en una hora determinada?**
 
-El análisis de sensibilidad muestra que, cuando los no respondientes se suponen medio punto por debajo, la media global bajaría a **3,396**; con una diferencia de un punto, bajaría a **3,040**.
+Para este análisis se cuentan los pedidos por:
 
-### 6. Intervalo de confianza del ticket
+- sucursal;
+- fecha;
+- hora.
 
-Sobre los 7.731 pedidos:
+También se incorporan las horas en las que no hubo pedidos para evitar sobreestimar la tasa de llegada.
 
-- **ticket promedio:** ₡3.534,3;
-- **desviación estándar:** ₡2.302,5;
-- **IC 95 %:** [₡3.483,0; ₡3.585,6];
-- **margen de error:** ± ₡51,3.
+## Distribución utilizada
 
-El bootstrap de 5.000 remuestreos produce un intervalo muy cercano al paramétrico, lo que respalda la estabilidad de la estimación.
+Se utiliza una **distribución de Poisson**.
 
-### 7. Diferencias entre sucursales
-
-El ANOVA de una vía contrasta la igualdad del monto promedio por línea de venta entre las cuatro sucursales:
+La elección se analiza mediante el índice de dispersión:
 
 \[
-F=18,101,\qquad p\approx1,03\times10^{-11}
+\frac{\text{Varianza}}{\text{Media}}
 \]
 
-La igualdad de medias se rechaza al nivel \(\alpha=0,05\). Escazú presenta la diferencia más clara: alrededor de **₡2.425** por línea frente a **₡2.220** en Heredia.
-
-Aun así, el modelo basado solo en sucursal tiene **R² = 0,0045**, por lo que la sucursal explica menos del 1 % de la variación total del monto. La diferencia es estadísticamente clara, pero de relevancia práctica limitada frente a otros factores.
-
-### 8. Impacto de las promociones
-
-| Grupo | Unidades promedio | n |
-|---|---:|---:|
-| Sin promoción | 1,267 | 8.033 |
-| Con promoción | 1,765 | 3.950 |
-
-La promoción aumenta las unidades observadas en aproximadamente **39,3 %**.
-
-Resultados de la comparación:
-
-- **t de Welch:** 34,61;
-- **p-value:** extremadamente inferior a 0,001;
-- **d de Cohen:** 0,702;
-- **efecto estimado:** aproximadamente +0,498 unidades por línea.
-
-Por tipo de promoción:
-
-| Promoción | Unidades promedio |
-|---|---:|
-| 2x1 en bebidas | 1,779 |
-| Combo postre | 1,765 |
-| Descuento del 10 % | 1,751 |
-| Sin promoción | 1,267 |
-
-La diferencia importante está entre **promocionar y no promocionar**. Los tres mecanismos promocionales presentan resultados muy cercanos, por lo que conviene evaluar también su costo operativo antes de escoger uno.
-
-La asignación de promociones no fue aleatoria, por lo que este análisis debe interpretarse como **cuasiexperimental**.
-
-### 9. Clima, asociación y causalidad
-
-La composición de ventas cambia según el clima. La bebida caliente representa aproximadamente:
-
-- **41,9 %** de las transacciones en días lluviosos;
-- **31,3 %** en días nublados;
-- **29,9 %** en días soleados.
-
-La asociación entre clima y categoría es estadísticamente detectable:
+Al calcularlo dentro de cada combinación de sucursal y hora, el promedio es aproximadamente:
 
 \[
-\chi^2=183,40,\qquad gl=6,\qquad p=6,42\times10^{-37}
+0,989
 \]
 
-Sin embargo, **V de Cramér = 0,0875**, lo que indica una asociación débil. Además, el volumen total de unidades cambia poco entre climas.
+## Patrón horario
 
-Variables como la hora del día, la estacionalidad y el perfil de cada sucursal pueden actuar como confusoras. Por ello, los datos permiten hablar de **asociación**, no de causalidad.
+El comportamiento muestra dos períodos principales de demanda.
 
-### 10. Regresión
+### Pico matutino
 
-El modelo lineal múltiple utiliza las unidades como variable dependiente y combina precio, promoción, hora, clima, sucursal y categoría como predictores.
+```text
+7:00 – 9:00
+```
 
-Resultados globales:
+### Pico vespertino
 
-- **R² del modelo:** 0,110;
-- **R² de validación:** 0,101;
-- **promoción activa:** \(\beta \approx 0,496\), p < 0,001;
-- **precio unitario:** efecto no distinguible de cero al 5 %;
-- **hora:** efecto no distinguible de cero al 5 %;
-- **clima:** coeficientes no distinguibles de cero al 5 % dentro del modelo.
+```text
+16:00 – 18:00
+```
 
-La promoción es, con amplia diferencia, el predictor de mayor peso entre las variables incluidas. El modelo explica cerca del 11 % de la variabilidad, por lo que resulta más apropiado como **guía direccional** que como pronóstico puntual.
+Los períodos de menor actividad aparecen alrededor de:
 
-Como verificación de robustez, se ajusta además una regresión de Poisson para tratar `unidades` como variable de conteo; el orden general de importancia de los predictores se conserva.
+```text
+11:00
+15:00
+```
 
-## Síntesis de decisiones para la gerencia
+## Ejemplo operativo
 
-| Evidencia | Implicación |
-|---|---|
-| La promoción presenta el efecto más grande y consistente del análisis. | Mantener la estrategia promocional y simplificar el mecanismo según costo y facilidad operativa. |
-| La demanda tiene picos claros por hora. | Dimensionar personal y preparación por franja horaria, no por un promedio diario. |
-| La satisfacción tiene 71,22 % de datos faltantes. | Rediseñar la captura con muestreo activo y selección aleatoria de clientes por turno. |
-| Escazú se separa estadísticamente del resto. | Auditar su mezcla de producto, clientela y operación para identificar prácticas replicables. |
-| El postre en la primera visita se asocia con mayor recurrencia. | Utilizarlo como señal para segmentación y seguimiento, sin atribuir causalidad. |
-| El clima cambia la mezcla de categorías, pero no explica claramente el volumen. | Usarlo para preparación de surtido, no como palanca causal de demanda. |
+Para Escazú a las 17:00:
 
-## Limitaciones
+\[
+\lambda=2,077
+\]
 
-1. **Ventana temporal corta:** el dataset cubre únicamente marzo–mayo de 2026 y no permite separar completamente estacionalidad de patrones estructurales.
-2. **Promociones no aleatorias:** la activación fue decidida por la cadena, de modo que pueden existir factores de confusión en la comparación tratamiento-control.
-3. **Poder explicativo limitado:** el modelo lineal explica cerca del 11 % de la variación de unidades; quedan variables relevantes fuera del dataset.
-4. **Ausencia de costos y márgenes:** el análisis estudia facturación y volumen, no rentabilidad. Una promoción puede aumentar unidades y al mismo tiempo reducir margen.
-5. **Datos incompletos de satisfacción:** la alta no respuesta impide tratar la media observada como representativa de toda la clientela.
+El percentil 95 corresponde aproximadamente a:
 
-## Requisitos originales del proyecto final
+```text
+5 pedidos
+```
 
-Las instrucciones académicas establecen que el reporte debe integrar los **diez sellos** sobre el mismo caso. Para que cada sello cuente como completo debe incluir:
+Este valor puede utilizarse como referencia para dimensionar la capacidad operativa de esa franja.
 
-- respuesta a la pregunta de negocio;
-- cálculo reproducible;
-- al menos un gráfico o tabla;
-- conclusión de 2 a 4 líneas en lenguaje de negocio;
-- interpretación contextual, no únicamente código o resultados numéricos.
+---
 
-### Checklist por sello
+# Sello 5 — Muestreo y sesgos
 
-#### Sello 1 — Descriptiva y visualización
+## Pregunta de negocio
 
-- Media, mediana y desviación estándar de `precio_unitario` y `unidades`, por sucursal y categoría.
-- Al menos dos gráficos.
-- Identificación del producto y categoría estrella a partir de los datos.
+**¿La calificación de satisfacción disponible representa correctamente a todos los clientes?**
 
-#### Sello 2 — Probabilidad condicional
+La variable analizada es:
 
-- Cálculo de \(P(postre)\).
-- Cálculo de \(P(postre\mid bebida\ caliente)\) dentro del mismo `id_pedido`.
-- Tabla de contingencia o desarrollo paso a paso.
-- Conclusión sobre la conveniencia de un combo bebida + postre.
+```text
+calificacion_satisfaccion
+```
 
-#### Sello 3 — Teorema de Bayes
+## Datos faltantes
 
-- Definición explícita de los eventos A y B.
-- Fórmula de Bayes con cada término mostrado.
-- Comparación de la probabilidad antes y después de conocer la evidencia.
+De las **11.983** líneas de venta:
 
-#### Sello 4 — Distribuciones
+```text
+8.534
+```
 
-- Conteo de pedidos por fecha y hora.
-- Ajuste de Poisson o Binomial con justificación.
-- Comparación de la distribución teórica con los datos observados mediante gráfico.
+no contienen una calificación.
 
-#### Sello 5 — Muestreo y sesgos
+Esto representa:
 
-- Porcentaje de datos faltantes en `calificacion_satisfaccion`.
-- Comparación de quienes respondieron y quienes no por variables observables.
-- Identificación del tipo de sesgo y del riesgo de ignorarlo.
+\[
+71,22\%
+\]
 
-#### Sello 6 — Intervalos de confianza
+de datos faltantes.
 
-- IC del 95 % del ticket global y por sucursal.
-- Explicación del método seleccionado.
-- Traducción del intervalo a lenguaje gerencial.
+Únicamente:
 
-#### Sello 7 — Prueba de hipótesis
+```text
+3.449 registros
+```
 
-- Planteamiento explícito de \(H_0\) y \(H_1\).
-- Elección y justificación de t-test o ANOVA.
-- Estadístico, p-value, nivel de significancia y decisión.
+contienen una respuesta.
 
-#### Sello 8 — A/B Testing
+## Media observada
 
-- Comparación de `promocion_activa = 1` contra `promocion_activa = 0`.
-- Prueba de hipótesis para la diferencia.
-- Tamaño del efecto.
-- Recomendación sobre mantener o no la promoción.
+La calificación media entre quienes respondieron es:
 
-#### Sello 9 — Correlación vs. causalidad
+\[
+3,752
+\]
 
-- Relación entre `clima` y `categoria` o ventas.
-- Al menos una variable confusora explicada.
-- Separación explícita entre lo que los datos permiten afirmar y lo que no permiten concluir causalmente.
+Esta cifra no debe considerarse automáticamente como la satisfacción promedio de toda la clientela.
 
-#### Sello 10 — Regresión
+## Análisis de sesgo
 
-- `unidades` o monto como variable dependiente.
-- Al menos tres predictores entre precio, promoción, clima, hora y sucursal.
-- Coeficientes y R².
-- Interpretación de al menos dos coeficientes en lenguaje de negocio.
+Se compara la tasa de respuesta según:
 
-## Entregables
+- hora;
+- sucursal;
+- clima;
+- promoción;
+- categoría;
+- día de la semana;
+- medio de pago.
 
-Las instrucciones del proyecto solicitan:
-
-| Entregable | Formato | Contenido |
-|---|---|---|
-| Reporte ejecutivo | PDF o Word; entrega final indicada en PDF | Narrativa integrada de los diez sellos, hallazgos, gráficos clave y recomendación de negocio. |
-| Cuaderno de trabajo | `.ipynb`, enlace de Colab, Excel o R según la herramienta usada | Cálculos, pruebas, modelos y resultados reproducibles. |
-
-Para este proyecto, el cuaderno se desarrolló en **Python/Jupyter** y el reporte ejecutivo se encuentra en **PDF**.
-
-## Rúbrica resumida
-
-| Criterio | Nivel excelente esperado |
-|---|---|
-| Análisis estadístico | Riguroso y bien fundamentado. |
-| Interpretación | Precisa y conectada con el contexto real del negocio. |
-| Herramientas | Uso correcto de Python y de las técnicas estadísticas. |
-| Visualización | Clara, pertinente y bien etiquetada. |
-| Conclusiones y decisión | Claras, justificadas y orientadas al negocio. |
-| Presentación y documentación | Profesional, ordenada y completa. |
-
-## Reproducibilidad
-
-El notebook está diseñado para ejecutarse en orden y reproducir los resultados del reporte desde la carga del CSV hasta el modelo final. El nivel de significancia general utilizado es:
+Ninguna de estas variables muestra una relación estadísticamente significativa con la respuesta al nivel:
 
 \[
 \alpha=0,05
 \]
 
-y, salvo indicación contraria, los intervalos se presentan al **95 % de confianza**.
+Esto no elimina el posible **sesgo de no respuesta o autoselección**, debido a que la satisfacción de quienes no respondieron es desconocida.
 
-Para obtener los mismos resultados:
+## Análisis de sensibilidad
 
-- no modifique manualmente el CSV antes de cargarlo;
-- ejecute el setup antes de cualquier sello;
-- ejecute las celdas de arriba hacia abajo;
-- conserve la misma unidad de análisis requerida en cada fase: línea de venta, pedido o cliente según corresponda.
+Media observada:
 
-## Autores
+\[
+3,752
+\]
+
+Si quienes no respondieron hubieran otorgado en promedio medio punto menos:
+
+\[
+3,396
+\]
+
+Si hubieran otorgado un punto menos:
+
+\[
+3,040
+\]
+
+## Recomendación
+
+Implementar un sistema de **muestreo activo**, seleccionando aleatoriamente una cantidad fija de clientes por turno para solicitar una evaluación.
+
+---
+
+# Sello 6 — Intervalos de confianza
+
+## Pregunta de negocio
+
+**¿Cuál es el ticket promedio de Café Cordillera y con qué margen de error puede estimarse?**
+
+El ticket se calcula agrupando todas las líneas correspondientes al mismo `id_pedido`.
+
+## Resultados globales
+
+Número de pedidos:
+
+\[
+n=7.731
+\]
+
+Ticket promedio:
+
+\[
+₡3.534,3
+\]
+
+Desviación estándar:
+
+\[
+₡2.302,5
+\]
+
+Intervalo de confianza del 95 %:
+
+\[
+[₡3.483,0;\ ₡3.585,6]
+\]
+
+Margen de error:
+
+\[
+\pm ₡51,3
+\]
+
+## Interpretación
+
+Bajo condiciones comparables, el análisis estima que el ticket promedio de la cadena se encuentra aproximadamente entre:
+
+```text
+₡3.483 y ₡3.586
+```
+
+con un nivel de confianza del 95 %.
+
+También se utiliza bootstrap con **5.000 remuestreos** como comprobación adicional.
+
+---
+
+# Sello 7 — Prueba de hipótesis
+
+## Pregunta de negocio
+
+**¿Una sucursal vende realmente más que las demás o las diferencias pueden atribuirse al azar?**
+
+Se plantea:
+
+### Hipótesis nula
+
+\[
+H_0:
+\mu_{Cartago}
+=
+\mu_{Escazú}
+=
+\mu_{Heredia}
+=
+\mu_{SanPedro}
+\]
+
+### Hipótesis alternativa
+
+\[
+H_1:
+\text{al menos una media es diferente}
+\]
+
+Se utiliza un **ANOVA de una vía** debido a que existen cuatro grupos independientes.
+
+## Resultado
+
+\[
+F=18,101
+\]
+
+\[
+p=1,03\times10^{-11}
+\]
+
+Con:
+
+\[
+\alpha=0,05
+\]
+
+se rechaza la hipótesis nula.
+
+## Escazú
+
+El análisis posterior identifica a Escazú como la principal fuente de diferencia.
+
+Comparando Escazú con Heredia:
+
+\[
+t=6,241
+\]
+
+\[
+p=4,64\times10^{-10}
+\]
+
+La diferencia observada es aproximadamente:
+
+```text
+₡205,44 por transacción
+```
+
+Sin embargo:
+
+\[
+R^2=0,0045
+\]
+
+La sucursal explica menos del 1 % de la variabilidad total del monto.
+
+## Interpretación
+
+Las diferencias entre sucursales son estadísticamente detectables, pero la sucursal por sí sola explica una proporción muy pequeña de la variación total de los tickets.
+
+---
+
+# Sello 8 — A/B Testing
+
+## Pregunta de negocio
+
+**¿La promoción activa realmente aumenta las ventas?**
+
+Se comparan dos grupos.
+
+### Grupo de control
+
+```text
+promocion_activa = 0
+```
+
+### Grupo de tratamiento
+
+```text
+promocion_activa = 1
+```
+
+La variable de resultado utilizada es:
+
+```text
+unidades
+```
+
+## Resultados
+
+### Sin promoción
+
+```text
+n = 8.033
+media = 1,267 unidades
+```
+
+### Con promoción
+
+```text
+n = 3.950
+media = 1,765 unidades
+```
+
+El incremento relativo es aproximadamente:
+
+\[
+39,3\%
+\]
+
+La prueba t de Welch produce:
+
+\[
+t=34,61
+\]
+
+El tamaño del efecto es:
+
+\[
+d=0,702
+\]
+
+## Tipos de promoción
+
+| Tipo de promoción | Unidades promedio | n |
+|---|---:|---:|
+| 2x1 en bebidas | 1,779 | 1.264 |
+| Combo postre | 1,765 | 1.194 |
+| Descuento del 10 % | 1,751 | 1.492 |
+| Sin promoción | 1,267 | 8.033 |
+
+## Interpretación
+
+La principal diferencia se encuentra entre **tener una promoción activa** y **no tener promoción**.
+
+Las tres promociones muestran resultados muy similares.
+
+La asignación histórica de promociones no fue aleatoria, por lo que el análisis debe interpretarse como **cuasiexperimental**.
+
+---
+
+# Sello 9 — Correlación y causalidad
+
+## Pregunta de negocio
+
+**¿El clima causa que se venda más bebida caliente?**
+
+Se estudia la relación entre:
+
+```text
+clima
+```
+
+y:
+
+```text
+categoria
+```
+
+## Bebidas calientes según clima
+
+En días lluviosos representan aproximadamente:
+
+\[
+41,9\%
+\]
+
+de las transacciones.
+
+En días nublados:
+
+\[
+31,3\%
+\]
+
+En días soleados:
+
+\[
+29,9\%
+\]
+
+## Prueba chi-cuadrado
+
+\[
+\chi^2=183,40
+\]
+
+\[
+gl=6
+\]
+
+\[
+p=6,42\times10^{-37}
+\]
+
+Existe una asociación estadística entre clima y categoría.
+
+Sin embargo:
+
+\[
+V\ de\ Cramér=0,0875
+\]
+
+La asociación tiene una intensidad débil.
+
+## Variables confusoras
+
+Entre los posibles factores que pueden explicar parte de la relación se encuentran:
+
+- hora del día;
+- estacionalidad;
+- mes;
+- perfil de cada sucursal;
+- composición de la clientela.
+
+## Interpretación
+
+Los datos muestran una **asociación** entre clima y mezcla de productos.
+
+No permiten establecer que el clima sea directamente la causa de los cambios observados.
+
+El clima puede ayudar a anticipar la mezcla de productos que debe prepararse, pero no debe interpretarse como una causa comprobada del volumen total vendido.
+
+---
+
+# Sello 10 — Regresión
+
+## Pregunta de negocio
+
+**¿Qué variables predicen mejor las unidades vendidas?**
+
+La variable dependiente es:
+
+```text
+unidades
+```
+
+Entre los predictores utilizados se encuentran:
+
+- precio unitario;
+- promoción activa;
+- hora;
+- clima;
+- sucursal;
+- categoría.
+
+## Modelo
+
+Se utiliza una regresión lineal múltiple.
+
+Resultado global:
+
+\[
+R^2\approx0,110
+\]
+
+En validación:
+
+\[
+R^2\approx0,101
+\]
+
+## Principales coeficientes
+
+### Promoción activa
+
+\[
+\beta\approx0,496
+\]
+
+\[
+p<0,001
+\]
+
+Manteniendo constantes las demás variables, una promoción activa se asocia con aproximadamente:
+
+```text
+0,5 unidades adicionales por transacción
+```
+
+### Precio unitario
+
+\[
+\beta\approx-0,0000232
+\]
+
+\[
+p=0,282
+\]
+
+El precio no presenta un efecto estadísticamente distinguible de cero dentro del rango observado.
+
+### Hora
+
+\[
+p=0,548
+\]
+
+No muestra un efecto estadísticamente significativo dentro del modelo.
+
+### Clima
+
+Los coeficientes asociados con el clima tampoco son estadísticamente significativos dentro del modelo multivariable.
+
+## Interpretación
+
+La variable de mayor importancia entre las disponibles es:
+
+```text
+promoción activa
+```
+
+El modelo explica aproximadamente el:
+
+\[
+11\%
+\]
+
+de la variabilidad en las unidades.
+
+Esto implica que aproximadamente el:
+
+\[
+89\%
+\]
+
+de la variación depende de factores que no están capturados por las variables incluidas.
+
+Por esa razón, el modelo debe interpretarse principalmente como una herramienta de **dirección e interpretación**, no como un sistema de pronóstico exacto.
+
+También se utiliza una regresión de Poisson como análisis de robustez debido a que `unidades` es una variable de conteo.
+
+---
+
+# Hallazgos principales
+
+El análisis completo permite destacar cinco hallazgos principales:
+
+1. **Las promociones presentan el efecto más fuerte y consistente sobre las unidades vendidas.**
+
+2. **Escazú presenta un comportamiento comercial estadísticamente diferente**, aunque la sucursal explica una fracción muy pequeña de la variabilidad total.
+
+3. **Las bebidas frías concentran la mayor facturación**, con el Frappe como producto estrella.
+
+4. **Comprar postre durante la primera visita se asocia con una mayor probabilidad de recurrencia**, aunque no se puede establecer una relación causal.
+
+5. **La encuesta de satisfacción presenta una debilidad importante**, debido a que el 71,22 % de los registros no contienen una calificación.
+
+---
+
+# Recomendaciones para la gerencia
+
+## 1. Mantener las promociones
+
+Las promociones presentan la evidencia estadística más fuerte del análisis.
+
+Como los tres mecanismos muestran resultados muy similares, puede priorizarse aquel que tenga:
+
+- menor costo;
+- menor complejidad;
+- mejor margen;
+- mayor facilidad operativa.
+
+---
+
+## 2. Ajustar el personal según la hora
+
+La demanda no se distribuye uniformemente durante el día.
+
+Los principales picos se encuentran entre:
+
+```text
+7:00 – 9:00
+16:00 – 18:00
+```
+
+La planificación de personal debería considerar estas franjas y no solamente un promedio diario.
+
+---
+
+## 3. Rediseñar la medición de satisfacción
+
+Con:
+
+\[
+71,22\%
+\]
+
+de datos faltantes, la calificación promedio observada no puede utilizarse como representación segura de toda la clientela.
+
+Se recomienda implementar un muestreo activo y aleatorio por turno.
+
+---
+
+## 4. Analizar la operación de Escazú
+
+Escazú presenta:
+
+- mayor precio unitario promedio;
+- ticket superior;
+- menor número promedio de unidades;
+- diferencias estadísticamente detectables frente a las demás sucursales.
+
+Conviene investigar elementos relacionados con:
+
+- mezcla de productos;
+- perfil de clientes;
+- estrategia comercial;
+- operación.
+
+---
+
+# Limitaciones
+
+## Ventana temporal limitada
+
+El dataset cubre únicamente:
+
+```text
+marzo – mayo de 2026
+```
+
+Tres meses no permiten observar completamente la estacionalidad anual.
+
+---
+
+## Promociones no asignadas aleatoriamente
+
+La empresa decidió cuándo activar cada promoción.
+
+Por lo tanto, pueden existir factores adicionales asociados con los períodos promocionales.
+
+---
+
+## Poder explicativo limitado
+
+La regresión explica aproximadamente:
+
+\[
+11\%
+\]
+
+de la variación en unidades.
+
+Variables que no aparecen en el dataset podrían incluir:
+
+- cantidad de personas en el local;
+- personal disponible;
+- tiempos de espera;
+- inventario;
+- margen por producto;
+- eventos especiales;
+- características individuales de los clientes.
+
+---
+
+## Ausencia de costos
+
+El dataset contiene información de ventas, pero no información de costos o márgenes.
+
+Por esta razón, no puede determinarse directamente cuál estrategia maximiza la rentabilidad.
+
+Una promoción puede aumentar las unidades vendidas y simultáneamente reducir el margen.
+
+---
+
+## Datos incompletos de satisfacción
+
+El:
+
+\[
+71,22\%
+\]
+
+de los registros carece de una calificación de satisfacción.
+
+Esto limita cualquier conclusión general sobre esta variable.
+
+---
+
+# Requisitos originales del proyecto
+
+Los requisitos completos pueden consultarse directamente en:
+
+```text
+instrucciones.html
+```
+
+El proyecto establece que los diez sellos deben formar parte de un único análisis.
+
+Cada sello debe incluir como mínimo:
+
+- una pregunta de negocio;
+- un cálculo reproducible;
+- al menos un gráfico o tabla;
+- interpretación del resultado;
+- conclusión en lenguaje de negocio.
+
+---
+
+# Checklist de los diez sellos
+
+## Sello 1 — Descriptiva y visualización
+
+- Media, mediana y desviación estándar de `precio_unitario`.
+- Media, mediana y desviación estándar de `unidades`.
+- Análisis por sucursal.
+- Análisis por categoría.
+- Al menos dos gráficos.
+- Identificación del producto estrella.
+- Identificación de la categoría estrella.
+
+## Sello 2 — Probabilidad condicional
+
+- Calcular \(P(postre)\).
+- Calcular \(P(postre\mid bebida\ caliente)\).
+- Trabajar a nivel de `id_pedido`.
+- Mostrar tabla de contingencia o cálculo.
+- Interpretar si conviene un combo.
+
+## Sello 3 — Bayes
+
+- Definir evento A.
+- Definir evento B.
+- Mostrar la fórmula de Bayes.
+- Mostrar cada término.
+- Comparar la probabilidad inicial con la posterior.
+
+## Sello 4 — Distribuciones
+
+- Contar pedidos por hora y fecha.
+- Seleccionar Poisson o Binomial.
+- Justificar la distribución elegida.
+- Comparar la teoría con los datos observados.
+- Incluir visualización.
+
+## Sello 5 — Muestreo y sesgos
+
+- Calcular porcentaje de datos faltantes.
+- Comparar quienes respondieron y quienes no.
+- Analizar variables observables.
+- Identificar el posible sesgo.
+- Explicar el riesgo de ignorarlo.
+
+## Sello 6 — Intervalos de confianza
+
+- Calcular el ticket.
+- IC del 95 % global.
+- IC del 95 % por sucursal.
+- Explicar el método utilizado.
+- Interpretar el intervalo en lenguaje de negocio.
+
+## Sello 7 — Prueba de hipótesis
+
+- Definir \(H_0\).
+- Definir \(H_1\).
+- Elegir una prueba apropiada.
+- Reportar estadístico.
+- Reportar p-value.
+- Definir \(\alpha\).
+- Tomar una decisión estadística.
+- Interpretar el resultado.
+
+## Sello 8 — A/B Testing
+
+- Comparar promoción activa contra ausencia de promoción.
+- Definir control y tratamiento.
+- Aplicar una prueba de hipótesis.
+- Calcular tamaño del efecto.
+- Interpretar los resultados.
+- Proponer una recomendación.
+
+## Sello 9 — Correlación vs. causalidad
+
+- Analizar la relación entre clima y categoría o ventas.
+- Medir la asociación.
+- Identificar variables confusoras.
+- Diferenciar correlación de causalidad.
+- Explicar qué puede afirmarse.
+- Explicar qué no puede afirmarse.
+
+## Sello 10 — Regresión
+
+- Utilizar `unidades` o monto como variable dependiente.
+- Incorporar al menos tres predictores.
+- Reportar coeficientes.
+- Reportar R².
+- Interpretar al menos dos coeficientes.
+- Evaluar el desempeño del modelo.
+
+---
+
+# Entregables
+
+Las instrucciones completas de entrega pueden consultarse en:
+
+```text
+instrucciones.html
+```
+
+El proyecto contiene dos entregables principales: el reporte ejecutivo y el cuaderno de cálculo.
+
+## Reporte ejecutivo
+
+El reporte resume las diez fases del análisis mediante:
+
+- metodología;
+- análisis estadístico;
+- hallazgos principales;
+- gráficos y tablas;
+- interpretación en contexto de negocio;
+- recomendaciones para la gerencia;
+- limitaciones;
+- conclusiones.
+
+El reporte se encuentra disponible en dos formatos:
+
+```text
+REPORTE EJECUTIVO.pdf
+REPORTE EJECUTIVO.docx
+```
+
+`REPORTE EJECUTIVO.pdf` corresponde a la versión final del documento.
+
+`REPORTE EJECUTIVO.docx` corresponde a la versión editable en Microsoft Word.
+
+## Cuaderno de cálculo
+
+Todos los cálculos, pruebas estadísticas y modelos utilizados en el proyecto se encuentran en:
+
+```text
+notebook proyecto final cafe cordillera.ipynb
+```
+
+El notebook permite reproducir los análisis utilizando el dataset ubicado en:
+
+```text
+data/cafe_cordillera_dataset.csv
+```
+
+---
+
+# Rúbrica resumida
+
+| Criterio | Nivel excelente esperado |
+|---|---|
+| Análisis estadístico | Riguroso y bien fundamentado |
+| Interpretación | Precisa y relacionada con el contexto real |
+| Herramientas | Uso correcto de las herramientas estadísticas |
+| Visualización | Clara y correctamente etiquetada |
+| Conclusiones y decisión | Claras y orientadas al negocio |
+| Presentación y documentación | Profesional y completa |
+
+La versión original de la rúbrica puede consultarse en:
+
+```text
+instrucciones.html
+```
+
+---
+
+# Reproducibilidad
+
+El notebook está diseñado para que los análisis se ejecuten en orden a partir del mismo dataset.
+
+El nivel de significancia utilizado, salvo indicación contraria, es:
+
+\[
+\alpha=0,05
+\]
+
+Los intervalos de confianza se reportan generalmente al:
+
+\[
+95\%
+\]
+
+Para reproducir correctamente los resultados:
+
+1. conservar el dataset original sin modificaciones manuales;
+2. mantener el archivo dentro de:
+
+```text
+data/cafe_cordillera_dataset.csv
+```
+
+3. ejecutar el notebook desde la raíz del proyecto;
+4. ejecutar primero el setup;
+5. ejecutar las celdas de arriba hacia abajo;
+6. utilizar la unidad de análisis correspondiente para cada sello.
+
+---
+
+# Autores
 
 - Luciana Carabaguiaz
 - Diego Díaz
@@ -452,4 +1432,9 @@ Para obtener los mismos resultados:
 
 ---
 
-**Proyecto académico — LEAD University · Probabilidad y Estadística I · 2026**
+## Proyecto académico
+
+**LEAD University**  
+**TCNT0011 · Probabilidad y Estadística I**  
+**Proyecto Final Integrador — Café Cordillera**  
+**2026**
